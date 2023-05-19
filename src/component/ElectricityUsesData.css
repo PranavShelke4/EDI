@@ -1,0 +1,61 @@
+* {
+    background-color: whitesmoke;
+}
+
+.hedaing {
+    text-align: center;
+    padding-bottom: 2%;
+}
+
+.comphed {
+    /* text-align: center; */
+    padding: 2% 3%;
+}
+
+.box {
+    padding: 5%;
+    margin: 5% 2%;
+    border-radius: 5px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    /* height: 10rem; */
+}
+
+#box1 {
+    color: white;
+    background-image: radial-gradient(circle 897px at 9% 80.3%, rgba(55, 60, 245, 1) 0%, rgba(234, 161, 15, 0.90) 100.2%);
+
+}
+
+#box2 {
+    color: white;
+    background-image: radial-gradient(circle farthest-corner at 10% 20%, rgba(237, 3, 32, 0.87) 20.8%, rgba(242, 121, 1, 0.84) 74.4%);
+}
+
+#box3 {
+    color: white;
+    background-image: radial-gradient(circle 975px at 2.6% 48.3%, rgba(0, 8, 120, 1) 0%, rgba(95, 184, 224, 1) 99.7%);
+
+}
+
+#box4 {
+    color: white;
+    background-image: linear-gradient(64.5deg, rgba(245, 116, 185, 1) 14.7%, rgba(89, 97, 223, 1) 88.7%);
+}
+
+#box5 {
+    color: white;
+    background-image: linear-gradient(109.6deg, rgba(209, 0, 116, 1) 11.2%, rgba(110, 44, 107, 1) 91.1%);
+}
+
+.icon, h2{
+    background-color: transparent;
+}
+
+.data {
+    background-color: transparent;
+    font-size: 5rem;
+}
