@@ -23,27 +23,6 @@ const ThingSpeakData = () => {
     return () => clearInterval(interval);
   }, []);
 
-
-
-  const saveDataToDatabase = async (data) => {
-    try {
-      const response = await axios.post('http://localhost:5000/api/save-data', data);
-      console.log(response.data); // Data saved successfully
-    } catch (error) {
-      console.error('Error saving data:', error);
-    }
-  };
-
-  useEffect(() => {
-    fetchData();
-    const interval = setInterval(() => {
-      fetchData(); // Fetch data before saving
-      saveDataToDatabase(data); // Save data to the database
-    }, 60000); // 1 minute in milliseconds (60 seconds * 1000)
-
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <div className='comphed'>
       <h2 className='hedaing'>Electric uses Data</h2>
