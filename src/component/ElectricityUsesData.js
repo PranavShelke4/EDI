@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import "./ElectricityUsesData.css"
 import { Col, Row } from 'react-bootstrap';
 
 const ThingSpeakData = () => {
   const [data, setData] = useState([]);
-
-  useEffect(() => {
-    fetchData();
-  }, []);
 
   const fetchData = async () => {
     try {
@@ -19,11 +16,39 @@ const ThingSpeakData = () => {
     }
   };
 
+  useEffect(() => {
+    fetchData();
+    const interval = setInterval(fetchData, 100);
+
+    return () => clearInterval(interval);
+  }, []);
+
+
+
+  const saveDataToDatabase = async (data) => {
+    try {
+      const response = await axios.post('http://localhost:5000/api/save-data', data);
+      console.log(response.data); // Data saved successfully
+    } catch (error) {
+      console.error('Error saving data:', error);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+    const interval = setInterval(() => {
+      fetchData(); // Fetch data before saving
+      saveDataToDatabase(data); // Save data to the database
+    }, 60000); // 1 minute in milliseconds (60 seconds * 1000)
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className='comphed'>
       <h2 className='hedaing'>Electric uses Data</h2>
       {data.map((feed, index) => (
-        <Row>
+        <Row key={index}>
           <Col lg='4'>
             <div className='box' id="box1">
               <h2>Voltage</h2>
